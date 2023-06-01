@@ -151,15 +151,15 @@ public class VistaSalas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_agregar;
+    public javax.swing.JButton btn_agregar;
     private javax.swing.JButton btn_editar;
-    private javax.swing.JButton btn_eliminar;
+    public javax.swing.JButton btn_eliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> list_salas;
-    private javax.swing.JTextField txt_idcentr;
-    private javax.swing.JTextField txt_idsal;
+    public javax.swing.JList<String> list_salas;
+    public javax.swing.JTextField txt_idcentr;
+    public javax.swing.JTextField txt_idsal;
     // End of variables declaration//GEN-END:variables
 }
