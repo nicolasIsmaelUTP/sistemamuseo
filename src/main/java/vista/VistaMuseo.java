@@ -223,9 +223,9 @@ public class VistaMuseo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_agregar;
-    private javax.swing.JButton btn_editar;
-    private javax.swing.JButton btn_eliminar;
+    public javax.swing.JButton btn_agregar;
+    public javax.swing.JButton btn_editar;
+    public javax.swing.JButton btn_eliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -237,12 +237,12 @@ public class VistaMuseo extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JList<String> list_museo;
-    private javax.swing.JTextField txt_calle;
-    private javax.swing.JTextField txt_codigopos;
-    private javax.swing.JTextField txt_descripcion;
-    private javax.swing.JTextField txt_id;
-    private javax.swing.JTextField txt_nombre;
-    private javax.swing.JTextField txt_numero;
+    public javax.swing.JList<String> list_museo;
+    public javax.swing.JTextField txt_calle;
+    public javax.swing.JTextField txt_codigopos;
+    public javax.swing.JTextField txt_descripcion;
+    public javax.swing.JTextField txt_id;
+    public javax.swing.JTextField txt_nombre;
+    public javax.swing.JTextField txt_numero;
     // End of variables declaration//GEN-END:variables
 }
