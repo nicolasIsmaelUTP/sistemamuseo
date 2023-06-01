@@ -145,6 +145,7 @@ public class Museo {
         try {
             // Se debe eliminar el registro pero antes se debe eliminar en cascada
             // sus centros asociados
+            getCentros();
             for (String centroId : this.centroIds) {
                 Centro.getObject(centroId).delete();
             }

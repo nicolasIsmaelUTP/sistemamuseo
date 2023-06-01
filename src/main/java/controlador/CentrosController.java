@@ -1,5 +1,7 @@
 package controlador;
 
+import java.util.ArrayList;
+
 import javax.swing.event.MouseInputAdapter;
 import javax.swing.table.DefaultTableModel;
 import modelo.Centro;
@@ -29,6 +31,7 @@ public class CentrosController {
         this.view.btn_eliminar.addActionListener(e -> eliminar());
         this.view.btn_vaciar.addActionListener(e -> vaciar());
         this.view.btn_mostrarTodos.addActionListener(e -> cargarJTable());
+        this.view.BT_FiltrarPorMuseo.addActionListener(e -> cargarJTablePorMuseo());
 
         // List Mouse Listener
         this.view.table_museos.addMouseListener(new MouseInputAdapter() {
@@ -71,6 +74,18 @@ public class CentrosController {
         for (Centro c : Centro.getAllObjects()) {
             modelo.addRow(new Object[] { c.id, c.museoId, c.direccion });
         }
+        view.table_centros.setModel(modelo);
+    }
+
+    public void cargarJTablePorMuseo() {
+        DefaultTableModel modelo = (DefaultTableModel) view.table_centros.getModel();
+        modelo.setRowCount(0);
+        museo.getCentros();
+        for (String idCentro : museo.centroIds) {
+            Centro c = Centro.getObject(idCentro);
+            modelo.addRow(new Object[] { c.id, c.museoId, c.direccion });
+        }
+
         view.table_centros.setModel(modelo);
     }
 

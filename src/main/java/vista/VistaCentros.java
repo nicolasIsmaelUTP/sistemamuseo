@@ -5,12 +5,13 @@
  */
 package vista;
 
+import controlador.CentrosController;
+
 /**
  *
  * @author VICTOR
  */
 public class VistaCentros extends javax.swing.JFrame {
-
     /**
      * Creates new form VistaCentris
      */
@@ -46,6 +47,11 @@ public class VistaCentros extends javax.swing.JFrame {
         TF_MuseoID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Registro Centros");
@@ -170,6 +176,9 @@ public class VistaCentros extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

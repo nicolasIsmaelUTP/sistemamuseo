@@ -5,6 +5,10 @@
  */
 package vista;
 
+import controlador.CentrosController;
+import controlador.MuseoController;
+import modelo.Sala;
+
 /**
  *
  * @author VICTOR
@@ -35,7 +39,8 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        item_museo = new javax.swing.JMenuItem();
+        item_centros = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -81,13 +86,21 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu2.setText("Museos");
 
-        jMenuItem1.setText("Museo");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        item_museo.setText("Museo");
+        item_museo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                item_museoActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        jMenu2.add(item_museo);
+
+        item_centros.setText("Centros");
+        item_centros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item_centrosActionPerformed(evt);
+            }
+        });
+        jMenu2.add(item_centros);
 
         jMenuItem2.setText("Salas");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -139,19 +152,14 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        VistaMuseo objmuseo = new VistaMuseo();
-        objmuseo.setVisible(true);
-        objmuseo.setLocationRelativeTo(null);
-        this.dispose();
+    private void item_museoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item_museoActionPerformed
+        MuseoController mc = new MuseoController();
+        mc.iniciar();
 
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_item_museoActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        VistaSalas objsala = new VistaSalas();
-        objsala.setVisible(true);
-        objsala.setLocationRelativeTo(null);
-        this.dispose();
+        
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -204,6 +212,11 @@ public class Menu extends javax.swing.JFrame {
              
              
     }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void item_centrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item_centrosActionPerformed
+        CentrosController cc = new CentrosController();
+        cc.iniciar();
+    }//GEN-LAST:event_item_centrosActionPerformed
  
     /**
      * @param args the command line arguments
@@ -242,9 +255,10 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar escritorio;
+    private javax.swing.JMenuItem item_centros;
+    private javax.swing.JMenuItem item_museo;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

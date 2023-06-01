@@ -126,6 +126,7 @@ public class Centro {
         try {
             // Se debe eliminar el registro pero antes se debe eliminar en cascada
             // sus centros asociados
+            getSalas();
             for (String salaId : this.salaIds) {
                 Sala.getObject(salaId).delete();
             }
