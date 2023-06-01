@@ -128,10 +128,7 @@ public class VistaExposiciones extends javax.swing.JFrame {
 
         TB_Exposicion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Fecha Inicial", "Fecha Final", "ID-Comisario", "Nombre del Comisario", "Tipo de Exposición"

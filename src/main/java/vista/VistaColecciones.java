@@ -71,10 +71,7 @@ public class VistaColecciones extends javax.swing.JFrame {
 
         TB_Colecciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "ID", "Nombre", "Dueño de la Coleccion"

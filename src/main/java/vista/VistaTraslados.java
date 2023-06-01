@@ -155,11 +155,7 @@ public class VistaTraslados extends javax.swing.JFrame {
 
         TB_Traslado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "ID", "Motivo"
