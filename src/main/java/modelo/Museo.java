@@ -15,16 +15,16 @@ import modelo.Conexion;
  * @author NICOLAS
  */
 public class Museo {
-    String id;
-    String codigo;
-    String nombre;
-    String calle;
-    String numero;
-    String codigoPostal;
-    String descripcion;
-    ArrayList<String> centroIds = new ArrayList<String>();
+    public String id;
+    public String codigo;
+    public String nombre;
+    public String calle;
+    public String numero;
+    public String codigoPostal;
+    public String descripcion;
+    public ArrayList<String> centroIds = new ArrayList<String>();
 
-    void create() {
+    public void create() {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
@@ -42,7 +42,7 @@ public class Museo {
         }
     }
 
-    static Museo getObject(String id) {
+    public static Museo getObject(String id) {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
@@ -58,7 +58,7 @@ public class Museo {
 
             if (rs.next()) {
                 Museo museo = new Museo();
-                museo.id = rs.getInt("id");
+                museo.id = rs.getString("id");
                 museo.codigo = rs.getString("codigo");
                 museo.nombre = rs.getString("nombre");
                 museo.calle = rs.getString("calle");
@@ -73,7 +73,40 @@ public class Museo {
         return null;
     }
 
-    void update() {
+    public static ArrayList<Museo> getAllObjects() {
+        // Obtener la conexión a la base de datos
+        Connection con = Conexion.getConexion();
+
+        // Declarar el objeto Statement y ResultSet
+        Statement st = null;
+        ResultSet rs = null;
+
+        try {
+            String consulta = "SELECT * FROM museo";
+            st = con.createStatement();
+            rs = st.executeQuery(consulta);
+
+            ArrayList<Museo> museos = new ArrayList<Museo>();
+
+            while (rs.next()) {
+                Museo museo = new Museo();
+                museo.id = rs.getString("id");
+                museo.codigo = rs.getString("codigo");
+                museo.nombre = rs.getString("nombre");
+                museo.calle = rs.getString("calle");
+                museo.numero = rs.getString("numero");
+                museo.codigoPostal = rs.getString("codigo_postal");
+                museo.descripcion = rs.getString("descripcion");
+                museos.add(museo);
+            }
+            return museos;
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.toString());
+        }
+        return null;
+    }
+
+    public void update() {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
@@ -92,7 +125,7 @@ public class Museo {
         }
     }
 
-    void delete() {
+    public void delete() {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
@@ -116,7 +149,7 @@ public class Museo {
         }
     }
 
-    void getCentros() {
+    public void getCentros() {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
@@ -136,5 +169,9 @@ public class Museo {
         } catch (SQLException e) {
             System.out.println("Error: " + e.toString());
         }
+    }
+
+    public String toString() {
+        return this.nombre;
     }
 }
