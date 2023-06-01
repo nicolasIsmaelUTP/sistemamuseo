@@ -32,7 +32,8 @@ public class Museo {
         PreparedStatement ps = null;
 
         try {
-            // String consulta = "";
+            String consulta = "INSERT INTO dbo.Museo (id";
+
             ps = con.prepareStatement(consulta);
             // ps.setString(1, this.codigo);
             // ps.setString(2, this.nombre);
