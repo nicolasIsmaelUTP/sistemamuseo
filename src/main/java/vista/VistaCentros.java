@@ -33,14 +33,14 @@ public class VistaCentros extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txt_direc = new javax.swing.JTextField();
         btn_agregar = new javax.swing.JButton();
-        btn_editar = new javax.swing.JButton();
+        btn_actualizar = new javax.swing.JButton();
         btn_eliminar = new javax.swing.JButton();
-        btn_obtener = new javax.swing.JButton();
+        btn_mostrarTodos = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        talb_centro = new javax.swing.JTable();
+        table_centros = new javax.swing.JTable();
         btn_vaciar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TB_Museo = new javax.swing.JTable();
+        table_museos = new javax.swing.JTable();
         BT_FiltrarPorMuseo = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         TF_MuseoID = new javax.swing.JTextField();
@@ -58,13 +58,13 @@ public class VistaCentros extends javax.swing.JFrame {
 
         btn_agregar.setText("Agregar");
 
-        btn_editar.setText("Editar");
+        btn_actualizar.setText("Actualizar");
 
         btn_eliminar.setText("Eliminar");
 
-        btn_obtener.setText("Obtener Centros");
+        btn_mostrarTodos.setText("Mostrar todos");
 
-        talb_centro.setModel(new javax.swing.table.DefaultTableModel(
+        table_centros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -72,11 +72,11 @@ public class VistaCentros extends javax.swing.JFrame {
                 "ID Centro", "ID Museo", "Direccion"
             }
         ));
-        jScrollPane2.setViewportView(talb_centro);
+        jScrollPane2.setViewportView(table_centros);
 
         btn_vaciar.setText("Vaciar");
 
-        TB_Museo.setModel(new javax.swing.table.DefaultTableModel(
+        table_museos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -84,7 +84,7 @@ public class VistaCentros extends javax.swing.JFrame {
                 "ID-Museo", "Museo"
             }
         ));
-        jScrollPane1.setViewportView(TB_Museo);
+        jScrollPane1.setViewportView(table_museos);
 
         BT_FiltrarPorMuseo.setText("Filtar Por Museo");
 
@@ -122,8 +122,8 @@ public class VistaCentros extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn_agregar)
                                 .addGap(18, 18, 18)
-                                .addComponent(btn_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btn_obtener, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btn_mostrarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn_eliminar)
                                 .addGap(18, 18, 18)
@@ -146,7 +146,7 @@ public class VistaCentros extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(txt_idcen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_agregar)
-                            .addComponent(btn_editar))
+                            .addComponent(btn_actualizar))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
@@ -155,7 +155,7 @@ public class VistaCentros extends javax.swing.JFrame {
                             .addComponent(btn_vaciar))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_obtener)
+                            .addComponent(btn_mostrarTodos)
                             .addComponent(jLabel4)
                             .addComponent(TF_MuseoID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(52, 52, 52)
@@ -209,12 +209,11 @@ public class VistaCentros extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton BT_FiltrarPorMuseo;
-    public javax.swing.JTable TB_Museo;
     public javax.swing.JTextField TF_MuseoID;
+    public javax.swing.JButton btn_actualizar;
     public javax.swing.JButton btn_agregar;
-    public javax.swing.JButton btn_editar;
     public javax.swing.JButton btn_eliminar;
-    public javax.swing.JButton btn_obtener;
+    public javax.swing.JButton btn_mostrarTodos;
     public javax.swing.JButton btn_vaciar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -222,7 +221,8 @@ public class VistaCentros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JTable talb_centro;
+    public javax.swing.JTable table_centros;
+    public javax.swing.JTable table_museos;
     public javax.swing.JTextField txt_direc;
     public javax.swing.JTextField txt_idcen;
     // End of variables declaration//GEN-END:variables

@@ -55,9 +55,9 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btn_agregar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btn_editar" min="-2" pref="73" max="-2" attributes="0"/>
+                              <Component id="btn_actualizar" min="-2" pref="73" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="btn_obtener" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
+                          <Component id="btn_mostrarTodos" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btn_eliminar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -87,7 +87,7 @@
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txt_idcen" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_agregar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_editar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_actualizar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -98,7 +98,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btn_obtener" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_mostrarTodos" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="TF_MuseoID" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -157,9 +157,9 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_editar">
+    <Component class="javax.swing.JButton" name="btn_actualizar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Editar"/>
+        <Property name="text" type="java.lang.String" value="Actualizar"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -173,9 +173,9 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_obtener">
+    <Component class="javax.swing.JButton" name="btn_mostrarTodos">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Obtener Centros"/>
+        <Property name="text" type="java.lang.String" value="Mostrar todos"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -188,7 +188,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="talb_centro">
+        <Component class="javax.swing.JTable" name="table_centros">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="3" rowCount="0">
@@ -241,7 +241,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="TB_Museo">
+        <Component class="javax.swing.JTable" name="table_museos">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="2" rowCount="0">

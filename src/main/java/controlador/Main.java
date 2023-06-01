@@ -13,7 +13,7 @@ import modelo.Conexion;
 public class Main {
     public static void main(String[] args) {
 
-        MuseoController mc = new MuseoController();
+        CentrosController mc = new CentrosController();
         mc.iniciar();
     }
 }
