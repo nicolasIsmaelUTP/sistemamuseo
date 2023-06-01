@@ -28,13 +28,12 @@ public class Museo {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
-        // Declarar el objeto PreparedStatement y ResultSet
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        // Declarar el objeto PreparedStatement
+        PreparedStatement ps = null;
 
         try {
             // String consulta = "";
-            PreparedStatement ps = con.prepareStatement(consulta);
+            ps = con.prepareStatement(consulta);
             // ps.setString(1, this.codigo);
             // ps.setString(2, this.nombre);
             ps.executeUpdate();
@@ -48,14 +47,14 @@ public class Museo {
         Connection con = Conexion.getConexion();
 
         // Declarar el objeto PreparedStatement y ResultSet
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
         try {
             // String consulta = "SELECT * FROM museo WHERE codigo = ?";
-            PreparedStatement ps = con.prepareStatement(consulta);
+            ps = con.prepareStatement(consulta);
             // ps.setString(1, id);
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
 
             if (rs.next()) {
                 Museo museo = new Museo();
@@ -74,17 +73,16 @@ public class Museo {
         return null;
     }
 
-    void update(){
+    void update() {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
         // Declarar el objeto PreparedStatement y ResultSet
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        PreparedStatement ps = null;
 
         try {
             // String consulta = "UPDATE museo SET codigo = ?, nombre = ? WHERE codigo = ?";
-            PreparedStatement ps = con.prepareStatement(consulta);
+            ps = con.prepareStatement(consulta);
             // ps.setString(1, this.codigo);
             // ps.setString(2, this.nombre);
             // ps.setString(3, this.codigo);
@@ -94,37 +92,43 @@ public class Museo {
         }
     }
 
-    void delete(){
+    void delete() {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
         // Declarar el objeto PreparedStatement y ResultSet
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        PreparedStatement ps = null;
 
         try {
-            // String consulta = "DELETE FROM museo WHERE codigo = ?";
-            PreparedStatement ps = con.prepareStatement(consulta);
-            // ps.setString(1, this.codigo);
+            // Se debe eliminar el registro pero antes se debe eliminar en cascada
+            // sus centros asociados
+            for (String centroId : this.centroIds) {
+                Centro.getObject(centroId).delete();
+            }
+
+            // Eliminar el registro del museo
+            String consulta = "DELETE FROM museo WHERE id = ?";
+            ps = con.prepareStatement(consulta);
+            // ps.setString(1, this.id);
             ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error: " + e.toString());
         }
     }
 
-    void getCentros(){
+    void getCentros() {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
         // Declarar el objeto PreparedStatement y ResultSet
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
         try {
             // String consulta = "SELECT centro_id FROM museo_centro WHERE museo_id = ?";
-            PreparedStatement ps = con.prepareStatement(consulta);
+             ps = con.prepareStatement(consulta);
             // ps.setString(1, this.id);
-            ResultSet rs = ps.executeQuery();
+             rs = ps.executeQuery();
 
             while (rs.next()) {
                 this.centroIds.add(rs.getString("centro_id"));

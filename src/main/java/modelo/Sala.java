@@ -24,12 +24,11 @@ public class Sala {
         Connection con = Conexion.getConexion();
 
         // Declarar el objeto PreparedStatement y ResultSet
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        PreparedStatement ps = null;
 
         try {
             // String consulta = "";
-            PreparedStatement ps = con.prepareStatement(consulta);
+             ps = con.prepareStatement(consulta);
             // ps.setString(1, this.codigo);
             // ps.setString(2, this.nombre);
             ps.executeUpdate();
@@ -43,14 +42,14 @@ public class Sala {
         Connection con = Conexion.getConexion();
 
         // Declarar el objeto PreparedStatement y ResultSet
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
         try {
             // String consulta = "SELECT * FROM sala WHERE id = ?";
-            PreparedStatement ps = con.prepareStatement(consulta);
+             ps = con.prepareStatement(consulta);
             // ps.setString(1, id);
-            ResultSet rs = ps.executeQuery();
+             rs = ps.executeQuery();
 
             if (rs.next()) {
                 Sala sala = new Sala();
@@ -70,12 +69,11 @@ public class Sala {
         Connection con = Conexion.getConexion();
 
         // Declarar el objeto PreparedStatement y ResultSet
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        PreparedStatement ps = null;
 
         try {
             // String consulta = "";
-            PreparedStatement ps = con.prepareStatement(consulta);
+             ps = con.prepareStatement(consulta);
             // ps.setString(1, this.codigo);
             // ps.setString(2, this.nombre);
             ps.executeUpdate();
@@ -89,12 +87,11 @@ public class Sala {
         Connection con = Conexion.getConexion();
 
         // Declarar el objeto PreparedStatement y ResultSet
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        PreparedStatement ps = null;
 
         try {
             // String consulta = "";
-            PreparedStatement ps = con.prepareStatement(consulta);
+             ps = con.prepareStatement(consulta);
             // ps.setString(1, this.codigo);
             // ps.setString(2, this.nombre);
             ps.executeUpdate();
@@ -108,15 +105,15 @@ public class Sala {
         Connection con = Conexion.getConexion();
 
         // Declarar el objeto PreparedStatement y ResultSet
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
         try {
             // String consulta = "";
-            PreparedStatement ps = con.prepareStatement(consulta);
+             ps = con.prepareStatement(consulta);
             // ps.setString(1, this.codigo);
             // ps.setString(2, this.nombre);
-            ResultSet rs = ps.executeQuery();
+             rs = ps.executeQuery();
 
             while (rs.next()) {
                 this.activoIds.add(rs.getString("activo_id"));

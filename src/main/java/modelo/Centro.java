@@ -25,12 +25,11 @@ public class Centro {
         Connection con = Conexion.getConexion();
 
         // Declarar el objeto PreparedStatement y ResultSet
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        PreparedStatement ps = null;
 
         try {
             // String consulta = "";
-            PreparedStatement ps = con.prepareStatement(consulta);
+            ps = con.prepareStatement(consulta);
             // ps.setString(1, this.codigo);
             // ps.setString(2, this.nombre);
             ps.executeUpdate();
@@ -44,14 +43,14 @@ public class Centro {
         Connection con = Conexion.getConexion();
 
         // Declarar el objeto PreparedStatement y ResultSet
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
         try {
             // String consulta = "SELECT * FROM centro WHERE id = ?";
-            PreparedStatement ps = con.prepareStatement(consulta);
+            ps = con.prepareStatement(consulta);
             // ps.setString(1, id);
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
 
             if (rs.next()) {
                 Centro centro = new Centro();
@@ -67,17 +66,16 @@ public class Centro {
         return null;
     }
 
-    void update(){
+    void update() {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
         // Declarar el objeto PreparedStatement y ResultSet
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        PreparedStatement ps = null;
 
         try {
             // String consulta = "";
-            PreparedStatement ps = con.prepareStatement(consulta);
+            ps = con.prepareStatement(consulta);
             // ps.setString(1, this.codigo);
             // ps.setString(2, this.nombre);
             ps.executeUpdate();
@@ -86,19 +84,24 @@ public class Centro {
         }
     }
 
-    void delete(){
+    void delete() {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
         // Declarar el objeto PreparedStatement y ResultSet
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        PreparedStatement ps = null;
 
         try {
+            // Se debe eliminar el registro pero antes se debe eliminar en cascada
+            // sus centros asociados
+            for (String salaId : this.salaIds) {
+                Sala.getObject(salaId).delete();
+            }
+
+            // Eliminar el registro
             // String consulta = "";
-            PreparedStatement ps = con.prepareStatement(consulta);
-            // ps.setString(1, this.codigo);
-            // ps.setString(2, this.nombre);
+            ps = con.prepareStatement(consulta);
+            // ps.setString(1, this.id);
             ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error: " + e.toString());
@@ -110,14 +113,14 @@ public class Centro {
         Connection con = Conexion.getConexion();
 
         // Declarar el objeto PreparedStatement y ResultSet
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
         try {
             // String consulta = "SELECT * FROM sala WHERE centro_id = ?";
-            PreparedStatement ps = con.prepareStatement(consulta);
+            ps = con.prepareStatement(consulta);
             // ps.setString(1, this.id);
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
 
             while (rs.next()) {
                 this.salaIds.add(rs.getString("id"));
