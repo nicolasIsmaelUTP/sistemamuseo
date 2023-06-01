@@ -8,6 +8,6 @@ package modelo;
  *
  * @author NICOLAS
  */
-public class NewClass {
+public class ActivoMuseistico {
     
 }
