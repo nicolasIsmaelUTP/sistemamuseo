@@ -23,14 +23,13 @@ public class Sala {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
-        // Declarar el objeto PreparedStatement y ResultSet
+        // Declarar el objeto PreparedStatement
         PreparedStatement ps = null;
 
         try {
-            // String consulta = "";
-             ps = con.prepareStatement(consulta);
-            // ps.setString(1, this.codigo);
-            // ps.setString(2, this.nombre);
+            String consulta = "INSERT INTO dbo.Sala (Centro_id_centro) VALUES (?)";
+            ps = con.prepareStatement(consulta);
+            ps.setString(1, this.centroId);
             ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error: " + e.toString());
@@ -46,10 +45,10 @@ public class Sala {
         ResultSet rs = null;
 
         try {
-            // String consulta = "SELECT * FROM sala WHERE id = ?";
-             ps = con.prepareStatement(consulta);
-            // ps.setString(1, id);
-             rs = ps.executeQuery();
+            String consulta = "SELECT * FROM dbo.Sala WHERE id_sala = ?";
+            ps = con.prepareStatement(consulta);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
 
             if (rs.next()) {
                 Sala sala = new Sala();
@@ -68,14 +67,13 @@ public class Sala {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
-        // Declarar el objeto PreparedStatement y ResultSet
+        // Declarar el objeto PreparedStatement
         PreparedStatement ps = null;
 
         try {
-            // String consulta = "";
-             ps = con.prepareStatement(consulta);
-            // ps.setString(1, this.codigo);
-            // ps.setString(2, this.nombre);
+            String consulta = "UPDATE dbo.Sala SET Centro_id_centro = ? WHERE id_sala = ?";
+            ps = con.prepareStatement(consulta);
+            ps.setString(1, this.centroId);
             ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error: " + e.toString());
@@ -86,14 +84,13 @@ public class Sala {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
-        // Declarar el objeto PreparedStatement y ResultSet
+        // Declarar el objeto PreparedStatement
         PreparedStatement ps = null;
 
         try {
-            // String consulta = "";
-             ps = con.prepareStatement(consulta);
-            // ps.setString(1, this.codigo);
-            // ps.setString(2, this.nombre);
+            String consulta = "DELETE FROM dbo.Sala WHERE id_sala = ?";
+            ps = con.prepareStatement(consulta);
+            ps.setString(1, this.id);
             ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error: " + e.toString());
@@ -109,14 +106,13 @@ public class Sala {
         ResultSet rs = null;
 
         try {
-            // String consulta = "";
-             ps = con.prepareStatement(consulta);
-            // ps.setString(1, this.codigo);
-            // ps.setString(2, this.nombre);
-             rs = ps.executeQuery();
+            String consulta = "SELECT id_alfanumerico FROM dbo.Activo WHERE Sala_id_sala = ?";
+            ps = con.prepareStatement(consulta);
+            ps.setString(1, this.id);
+            rs = ps.executeQuery();
 
             while (rs.next()) {
-                this.activoIds.add(rs.getString("activo_id"));
+                this.activoIds.add(rs.getString("id_alfanumerico"));
             }
         } catch (SQLException e) {
             System.out.println("Error: " + e.toString());
