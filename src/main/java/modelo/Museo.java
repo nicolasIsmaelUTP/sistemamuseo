@@ -64,8 +64,8 @@ public class Museo {
 
             if (rs.next()) {
                 Museo museo = new Museo();
-                museo.id = rs.getString("id");
-                museo.codigo = rs.getString("codigo");
+                museo.id = rs.getString("codigo_autonumerico");
+                museo.codigo = rs.getString("codigo_unico");
                 museo.nombre = rs.getString("nombre");
                 museo.calle = rs.getString("calle");
                 museo.numero = rs.getString("numero");
@@ -92,12 +92,12 @@ public class Museo {
             st = con.createStatement();
             rs = st.executeQuery(consulta);
 
-            ArrayList<Museo> museos = new ArrayList<Museo>();
+            ArrayList<Museo> museos = new ArrayList<>();
 
             while (rs.next()) {
                 Museo museo = new Museo();
-                museo.id = rs.getString("id");
-                museo.codigo = rs.getString("codigo");
+                museo.id = rs.getString("codigo_autonumerico");
+                museo.codigo = rs.getString("codigo_unico");
                 museo.nombre = rs.getString("nombre");
                 museo.calle = rs.getString("calle");
                 museo.numero = rs.getString("numero");
