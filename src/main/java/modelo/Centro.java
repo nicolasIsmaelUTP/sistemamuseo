@@ -28,10 +28,10 @@ public class Centro {
         PreparedStatement ps = null;
 
         try {
-            // String consulta = "";
+            String consulta = "INSERT INTO dbo.Centro (Museo_codigo_autonumerico, direccion) VALUES (?, ?)";
             ps = con.prepareStatement(consulta);
-            // ps.setString(1, this.codigo);
-            // ps.setString(2, this.nombre);
+            ps.setString(1, this.museoId);
+            ps.setString(2, this.direccion);
             ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error: " + e.toString());
@@ -47,9 +47,9 @@ public class Centro {
         ResultSet rs = null;
 
         try {
-            // String consulta = "SELECT * FROM centro WHERE id = ?";
+            String consulta = "SELECT * FROM centro WHERE id_centro = ?";
             ps = con.prepareStatement(consulta);
-            // ps.setString(1, id);
+            ps.setString(1, id);
             rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -70,7 +70,7 @@ public class Centro {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
-        // Declarar el objeto PreparedStatement y ResultSet
+        // Declarar el objeto PreparedStatement
         PreparedStatement ps = null;
 
         try {
