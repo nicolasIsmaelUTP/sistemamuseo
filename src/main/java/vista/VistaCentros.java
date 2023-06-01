@@ -48,6 +48,8 @@ public class VistaCentros extends javax.swing.JFrame {
 
         jLabel2.setText("Id Centro :");
 
+        txt_idcen.setEditable(false);
+
         jLabel3.setText("Direccion :");
 
         jLabel4.setText("Id Museo :");

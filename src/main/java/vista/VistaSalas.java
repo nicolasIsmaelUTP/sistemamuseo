@@ -45,6 +45,8 @@ public class VistaSalas extends javax.swing.JFrame {
 
         jLabel2.setText("Id Sala :");
 
+        txt_idsal.setEditable(false);
+
         jLabel3.setText("Centro Id :");
 
         btn_agregar.setText("Agregar");

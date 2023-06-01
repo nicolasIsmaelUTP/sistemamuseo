@@ -73,6 +73,8 @@ public class VistaMuseo extends javax.swing.JFrame {
 
         jLabel2.setText("Id Museo :");
 
+        txt_id.setEditable(false);
+
         jLabel3.setText("Nombre : ");
 
         jLabel4.setText("Calle : ");
@@ -123,8 +125,8 @@ public class VistaMuseo extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel3)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8))
                                 .addGap(21, 21, 21)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txt_id, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
