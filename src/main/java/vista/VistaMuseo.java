@@ -73,6 +73,8 @@ public class VistaMuseo extends javax.swing.JFrame {
 
         jLabel2.setText("Id Museo :");
 
+        txt_id.setEditable(false);
+
         jLabel3.setText("Nombre : ");
 
         jLabel4.setText("Calle : ");
