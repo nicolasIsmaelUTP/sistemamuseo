@@ -39,6 +39,72 @@ public class Centro {
         }
     }
 
+    static Centro getObject(String id) {
+        // Obtener la conexión a la base de datos
+        Connection con = Conexion.getConexion();
+
+        // Declarar el objeto PreparedStatement y ResultSet
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            // String consulta = "SELECT * FROM centro WHERE id = ?";
+            PreparedStatement ps = con.prepareStatement(consulta);
+            // ps.setString(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                Centro centro = new Centro();
+                centro.id = rs.getString("id");
+                centro.museoId = rs.getString("museo_id");
+                centro.direccion = rs.getString("direccion");
+                return centro;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.toString());
+        }
+
+        return null;
+    }
+
+    void update(){
+        // Obtener la conexión a la base de datos
+        Connection con = Conexion.getConexion();
+
+        // Declarar el objeto PreparedStatement y ResultSet
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            // String consulta = "";
+            PreparedStatement ps = con.prepareStatement(consulta);
+            // ps.setString(1, this.codigo);
+            // ps.setString(2, this.nombre);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.toString());
+        }
+    }
+
+    void delete(){
+        // Obtener la conexión a la base de datos
+        Connection con = Conexion.getConexion();
+
+        // Declarar el objeto PreparedStatement y ResultSet
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            // String consulta = "";
+            PreparedStatement ps = con.prepareStatement(consulta);
+            // ps.setString(1, this.codigo);
+            // ps.setString(2, this.nombre);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.toString());
+        }
+    }
+
     void getSalas() {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();

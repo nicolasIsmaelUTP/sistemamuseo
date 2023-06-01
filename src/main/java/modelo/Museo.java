@@ -111,4 +111,26 @@ public class Museo {
             System.out.println("Error: " + e.toString());
         }
     }
+
+    void getCentros(){
+        // Obtener la conexión a la base de datos
+        Connection con = Conexion.getConexion();
+
+        // Declarar el objeto PreparedStatement y ResultSet
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            // String consulta = "SELECT centro_id FROM museo_centro WHERE museo_id = ?";
+            PreparedStatement ps = con.prepareStatement(consulta);
+            // ps.setString(1, this.id);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                this.centroIds.add(rs.getString("centro_id"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.toString());
+        }
+    }
 }
