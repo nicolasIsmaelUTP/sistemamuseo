@@ -49,7 +49,7 @@ public class VistaMuseo extends javax.swing.JFrame {
         txt_codigo = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         table_museo = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btn_vaciar = new javax.swing.JButton();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
@@ -107,7 +107,7 @@ public class VistaMuseo extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(table_museo);
 
-        jButton1.setText("Vaciar");
+        btn_vaciar.setText("Vaciar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -149,7 +149,7 @@ public class VistaMuseo extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btn_vaciar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addGap(202, 202, 202)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -202,7 +202,7 @@ public class VistaMuseo extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_eliminar)
-                            .addComponent(jButton1))))
+                            .addComponent(btn_vaciar))))
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_agregar)
@@ -257,7 +257,7 @@ public class VistaMuseo extends javax.swing.JFrame {
     public javax.swing.JButton btn_actualizar;
     public javax.swing.JButton btn_agregar;
     public javax.swing.JButton btn_eliminar;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton btn_vaciar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

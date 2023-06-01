@@ -32,11 +32,16 @@ public class Museo {
         PreparedStatement ps = null;
 
         try {
-            String consulta = "INSERT INTO dbo.Museo (id";
+            String consulta = "INSERT INTO dbo.Museo (codigo_unico, nombre, calle, numero, codigo_postal, descripcion) VALUES (?, ?, ?, ?, ?, ?)";
 
             ps = con.prepareStatement(consulta);
-            // ps.setString(1, this.codigo);
-            // ps.setString(2, this.nombre);
+            ps.setString(1, this.codigo);
+            ps.setString(2, this.nombre);
+            ps.setString(3, this.calle);
+            ps.setString(4, this.numero);
+            ps.setString(5, this.codigoPostal);
+            ps.setString(6, this.descripcion);
+
             ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error: " + e.toString());
@@ -52,9 +57,9 @@ public class Museo {
         ResultSet rs = null;
 
         try {
-            // String consulta = "SELECT * FROM museo WHERE codigo = ?";
+            String consulta = "SELECT * FROM dbo.Museo WHERE codigo_autonumerico = ?";
             ps = con.prepareStatement(consulta);
-            // ps.setString(1, id);
+            ps.setString(1, id);
             rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -83,7 +88,7 @@ public class Museo {
         ResultSet rs = null;
 
         try {
-            String consulta = "SELECT * FROM museo";
+            String consulta = "SELECT * FROM dbo.Museo";
             st = con.createStatement();
             rs = st.executeQuery(consulta);
 
@@ -115,11 +120,15 @@ public class Museo {
         PreparedStatement ps = null;
 
         try {
-            // String consulta = "UPDATE museo SET codigo = ?, nombre = ? WHERE codigo = ?";
+            String consulta = "UPDATE dbo.Museo SET codigo_unico = ?, nombre = ?, calle = ?, numero = ?, codigo_postal = ?, descripcion = ? WHERE codigo_autonumerico = ?";
             ps = con.prepareStatement(consulta);
-            // ps.setString(1, this.codigo);
-            // ps.setString(2, this.nombre);
-            // ps.setString(3, this.codigo);
+            ps.setString(1, this.codigo);
+            ps.setString(2, this.nombre);
+            ps.setString(3, this.calle);
+            ps.setString(4, this.numero);
+            ps.setString(5, this.codigoPostal);
+            ps.setString(6, this.descripcion);
+            ps.setString(7, this.id);
             ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error: " + e.toString());
@@ -141,9 +150,9 @@ public class Museo {
             }
 
             // Eliminar el registro del museo
-            String consulta = "DELETE FROM museo WHERE id = ?";
+            String consulta = "DELETE FROM dbo.Museo WHERE codigo_autonumerico = ?";
             ps = con.prepareStatement(consulta);
-            // ps.setString(1, this.id);
+            ps.setString(1, this.id);
             ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error: " + e.toString());
@@ -159,13 +168,13 @@ public class Museo {
         ResultSet rs = null;
 
         try {
-            // String consulta = "SELECT centro_id FROM museo_centro WHERE museo_id = ?";
-             ps = con.prepareStatement(consulta);
-            // ps.setString(1, this.id);
-             rs = ps.executeQuery();
+            String consulta = "SELECT id_centro FROM dbo.Centro WHERE Museo_codigo_autonumerico = ?";
+            ps = con.prepareStatement(consulta);
+            ps.setString(1, this.id);
+            rs = ps.executeQuery();
 
             while (rs.next()) {
-                this.centroIds.add(rs.getString("centro_id"));
+                this.centroIds.add(rs.getString("id_centro"));
             }
         } catch (SQLException e) {
             System.out.println("Error: " + e.toString());
