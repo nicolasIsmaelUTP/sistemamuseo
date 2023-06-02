@@ -2,6 +2,7 @@ package controlador;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 import javax.swing.event.MouseInputAdapter;
 import javax.swing.table.DefaultTableModel;
 import modelo.Centro;
@@ -99,12 +100,17 @@ public class CentrosController {
     }
 
     public void agregar() {
-        // Atributos de Centro: id_centro, Museo_codigo_autonumerico, direccion
-        centro.id = view.txt_idcen.getText();
-        centro.museoId = view.TF_MuseoID.getText();
-        centro.direccion = view.txt_direc.getText();
-        centro.create();
-        cargarJTable();
+        if (view.TF_MuseoID.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un museo");
+        } else {
+            // Atributos de Centro: id_centro, Museo_codigo_autonumerico, direccion
+            centro.id = view.txt_idcen.getText();
+            centro.museoId = view.TF_MuseoID.getText();
+            centro.direccion = view.txt_direc.getText();
+            centro.create();
+            cargarJTable();
+            vaciar();
+        }
     }
 
     private void actualizar() {

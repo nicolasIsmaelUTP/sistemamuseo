@@ -18,7 +18,7 @@ public class Centro {
     public String id;
     public String museoId;
     public String direccion;
-    public ArrayList<String> salaIds = new ArrayList<String>();
+    public ArrayList<String> salaIds = new ArrayList<>();
 
     public void create() {
         // Obtener la conexión a la base de datos
