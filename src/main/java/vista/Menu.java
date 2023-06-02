@@ -7,6 +7,7 @@ package vista;
 
 import controlador.CentrosController;
 import controlador.MuseoController;
+import controlador.SalasController;
 import modelo.Sala;
 
 /**
@@ -41,7 +42,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         item_museo = new javax.swing.JMenuItem();
         item_centros = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        item_salas = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -102,13 +103,13 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu2.add(item_centros);
 
-        jMenuItem2.setText("Salas");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        item_salas.setText("Salas");
+        item_salas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                item_salasActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem2);
+        jMenu2.add(item_salas);
 
         jMenuItem3.setText("Activo");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -158,9 +159,10 @@ public class Menu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_item_museoActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private void item_salasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item_salasActionPerformed
+        SalasController sc = new SalasController();
+        sc.iniciar();
+    }//GEN-LAST:event_item_salasActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         VistaActivos objactivo = new VistaActivos();
@@ -257,9 +259,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuBar escritorio;
     private javax.swing.JMenuItem item_centros;
     private javax.swing.JMenuItem item_museo;
+    private javax.swing.JMenuItem item_salas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;

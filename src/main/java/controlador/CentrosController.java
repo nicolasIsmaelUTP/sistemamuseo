@@ -120,6 +120,7 @@ public class CentrosController {
         centro.id = view.txt_idcen.getText();
         centro.delete();
         cargarJTable();
+        vaciar();
     }
 
     private void vaciar() {

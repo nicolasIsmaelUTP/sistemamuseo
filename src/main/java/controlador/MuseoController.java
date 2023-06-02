@@ -98,6 +98,7 @@ public class MuseoController {
         museo.id = view.txt_id.getText();
         museo.delete();
         cargarJTable();
+        vaciar();
     }
 
     public void vaciar() {

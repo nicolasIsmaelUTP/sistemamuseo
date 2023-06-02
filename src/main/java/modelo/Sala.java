@@ -15,11 +15,11 @@ import modelo.Conexion;
  * @author NICOLAS
  */
 public class Sala {
-    String id;
-    String centroId;
-    ArrayList<String> activoIds = new ArrayList<String>();
+    public String id;
+    public String centroId;
+    public ArrayList<String> activoIds = new ArrayList<String>();
 
-    void create() {
+    public void create() {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
@@ -36,7 +36,7 @@ public class Sala {
         }
     }
 
-    static Sala getObject(String id) {
+    public static Sala getObject(String id) {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
@@ -52,8 +52,8 @@ public class Sala {
 
             if (rs.next()) {
                 Sala sala = new Sala();
-                sala.id = rs.getString("id");
-                sala.centroId = rs.getString("centro_id");
+                sala.id = rs.getString("id_sala");
+                sala.centroId = rs.getString("Centro_id_centro");
                 return sala;
             }
         } catch (SQLException e) {
@@ -63,7 +63,38 @@ public class Sala {
         return null;
     }
 
-    void update() {
+    public static ArrayList<Sala> getAllObjects() {
+        // Obtener la conexión a la base de datos
+        Connection con = Conexion.getConexion();
+
+        // Declarar el objeto Statement y ResultSet
+        Statement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            String consulta = "SELECT * FROM dbo.Sala";
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(consulta);
+
+            ArrayList<Sala> salas = new ArrayList<Sala>();
+
+            while (rs.next()) {
+                Sala sala = new Sala();
+                sala.id = rs.getString("id_sala");
+                sala.centroId = rs.getString("Centro_id_centro");
+                salas.add(sala);
+            }
+
+            return salas;
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.toString());
+        }
+
+        return null;
+    }
+
+
+    public void update() {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
@@ -80,7 +111,7 @@ public class Sala {
         }
     }
 
-    void delete() {
+    public void delete() {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
@@ -97,7 +128,7 @@ public class Sala {
         }
     }
 
-    void getActivos() {
+    public void getActivos() {
         // Obtener la conexión a la base de datos
         Connection con = Conexion.getConexion();
 
